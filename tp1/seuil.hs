@@ -1,8 +1,6 @@
--- seuilInt :: Int -> Int -> Int -> Int
+-- seuilInt
 
--- seuil :: Ord a => a -> a -> a -> a
-
--- seuilTuple :: Ord a => (a, a) -> a -> a
+-- seuilTuple
 
 main :: IO ()
 main = putStrLn "TODO"

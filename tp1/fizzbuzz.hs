@@ -3,7 +3,7 @@
 
 -- fizzbuzz2 :: [Int] -> [String]
 
--- fizzbuzz :: [String]
+-- fizzbuzz
 
 main :: IO ()
 main = putStrLn "TODO"
