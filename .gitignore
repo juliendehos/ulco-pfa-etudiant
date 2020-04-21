@@ -1,0 +1,6 @@
+.stack-work
+result
+stack.yaml.lock
+*.hi
+*.ho
+
