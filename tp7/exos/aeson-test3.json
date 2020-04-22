@@ -2,12 +2,14 @@
     {
         "firstname": "John",
         "lastname": "Doe",
-        "birthyear": "1970"
+        "birthyear": "1970",
+        "speakenglish": false
     },
     {
         "birthyear": 1900,
         "lastname": "Curry",
-        "firstname": "Haskell"
+        "firstname": "Haskell",
+        "speakenglish": true
     }
 ]
 

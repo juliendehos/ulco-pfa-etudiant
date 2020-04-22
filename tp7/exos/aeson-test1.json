@@ -1,6 +1,7 @@
 {
     "firstname": "John",
     "lastname": "Doe",
-    "birthyear": 1970
+    "birthyear": "1970",
+    "speakenglish": false
 }
 
