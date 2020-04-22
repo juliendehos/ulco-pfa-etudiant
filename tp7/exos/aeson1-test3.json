@@ -1,0 +1,14 @@
+[
+    {
+        "firstname": "John",
+        "lastname": "Doe",
+        "birthyear": "1970"
+    },
+    {
+        "birthyear": 1900,
+        "lastname": "Curry",
+        "firstname": "Haskell"
+    }
+]
+
+
