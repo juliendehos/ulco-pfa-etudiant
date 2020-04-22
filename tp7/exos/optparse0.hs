@@ -2,7 +2,7 @@ import Options.Applicative
 
 data Args = Args
     { hello      :: String
-    , enthusiasm :: Int
+    , val1       :: Int
     } deriving (Show)
 
 argsP :: Parser Args
@@ -12,8 +12,8 @@ argsP = Args
          <> help "Target for the greeting"
          <> metavar "TARGET")
       <*> option auto
-          ( long "enthusiasm"
-         <> help "How enthusiast?"
+          ( long "val1"
+         <> help "Value 1"
          <> metavar "INT"
          <> value 1)
 
