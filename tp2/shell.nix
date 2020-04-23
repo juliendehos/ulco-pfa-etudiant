@@ -2,7 +2,7 @@ with import <nixpkgs> {};
 
 mkShell {
   buildInputs = [
-    (haskellPackages.ghcWithHoogle (ps: with ps; [
+    (haskellPackages.ghcWithPackages (ps: with ps; [
       haskell-gi
       gi-gtk
     ]))
