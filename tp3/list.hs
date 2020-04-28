@@ -3,7 +3,7 @@
 
 -- sumList 
 
--- concatList 
+-- flatList 
 
 -- toHaskell 
 
