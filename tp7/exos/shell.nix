@@ -5,8 +5,6 @@ mkShell {
     (haskellPackages.ghcWithPackages (ps: with ps; [
       aeson
       bytestring
-      hakyll
-      optparse-generic
       optparse-applicative
       pandoc
       scalpel
