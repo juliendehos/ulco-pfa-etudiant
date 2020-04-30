@@ -3,4 +3,5 @@ result
 stack.yaml.lock
 *.hi
 *.ho
+*.db
 
