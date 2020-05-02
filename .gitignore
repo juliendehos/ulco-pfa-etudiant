@@ -4,4 +4,6 @@ stack.yaml.lock
 *.hi
 *.ho
 *.db
+all.js
+dist-*
 
