@@ -1,0 +1,14 @@
+cradle:
+  multi:
+    - path: .
+      config:
+        cradle:
+          cabal:
+            component: lib:arithm
+
+    - path: ./test
+      config:
+        cradle:
+          cabal:
+            component: test:spec
+
