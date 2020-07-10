@@ -7,4 +7,5 @@ stack.yaml.lock
 all.js
 dist-*
 .vscode
+result
 
