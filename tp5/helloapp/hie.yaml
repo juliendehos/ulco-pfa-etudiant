@@ -1,4 +1,5 @@
 cradle:
   cabal:
     - path: "."
-      component: "exe:site"
+      component: exe:helloapp
+
