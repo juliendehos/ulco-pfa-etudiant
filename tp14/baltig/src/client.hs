@@ -20,6 +20,7 @@ main = miso $ \myUri -> App
     , events        = defaultEvents
     , subs          = [ uriSub Action.SetUri ]
     , mountPoint    = Nothing
+    , logLevel      = Off
     }
 
 ----------------------------------------------------------------------

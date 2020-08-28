@@ -16,5 +16,6 @@ main = miso $ \_uri -> App
     , subs          = []
     , events        = defaultEvents
     , mountPoint    = Nothing
+    , logLevel = Off
     }
 

@@ -70,6 +70,7 @@ main = startApp App
     , subs          = [ keyboardSub ActionKey ]
     , events        = defaultEvents
     , mountPoint    = Nothing
+    , logLevel      = Off
     }
 
 ----------------------------------------------------------------------

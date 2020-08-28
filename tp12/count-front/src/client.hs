@@ -22,6 +22,7 @@ main = startApp App
     , subs          = []
     , events        = defaultEvents
     , mountPoint    = Nothing
+    , logLevel      = Off
     }
 
 updateModel :: Action -> Model -> Effect Action Model
