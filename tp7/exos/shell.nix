@@ -9,6 +9,7 @@ mkShell {
       pandoc
       scalpel
       text
+      yaml
     ]))
   ];
 }

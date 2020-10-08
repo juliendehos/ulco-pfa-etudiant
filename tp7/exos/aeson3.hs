@@ -3,9 +3,9 @@
 import qualified Data.Text as T
 
 data Person = Person
-    { firstname    :: T.Text
-    , lastname     :: T.Text
-    , birthyear    :: Int
+    { first    :: T.Text
+    , last     :: T.Text
+    , birth    :: Int
     } deriving (Show)
 
 main :: IO ()
