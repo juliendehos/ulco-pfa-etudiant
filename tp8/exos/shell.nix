@@ -12,6 +12,7 @@ mkShell {
       scalpel
       text
       text-show
+      yaml
     ]))
   ];
 }
