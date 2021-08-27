@@ -4,6 +4,7 @@
 {-# LANGUAGE TypeOperators #-}
 
 import Control.Monad (forM_)
+import qualified Data.Text as T
 import Data.Text.Lazy (Text, pack)
 import Lucid
 import Network.Wai.Handler.Warp (run)
@@ -11,6 +12,7 @@ import Servant
 import Servant.HTML.Lucid
 
 import Music
+import Route
 
 newtype Model = Model { _musics :: [Music] }
 
@@ -18,10 +20,12 @@ type ApiHome = Get '[HTML] Model
 
 type Api
     =    ApiHome
+    -- TODO
 
 myApiServer :: Model -> Server Api
 myApiServer model
     =    pure model
+    -- TODO
 
 serverApp :: Model -> Application
 serverApp model = serve (Proxy @Api) (myApiServer model)
@@ -33,17 +37,23 @@ main = do
     putStrLn $ "listening on port " <> show port <> "..."
     run port (serverApp model)
 
-myMusics :: [Music]
-myMusics = 
-    [ Music "Paranoid android" "Radiohead" 1997
-    , Music "Just" "Radiohead" 1995
-    , Music "Take the power back" "Rage against the machine" 1991
-    , Music "How I could just kill a man" "Rage against the machine" 2000
-    , Music "La porte bonheur" "Ibrahim Maalouf" 2014
-    ]
-
 instance ToHtml Model where
     toHtmlRaw = toHtml
 
-    toHtml model = h1_ "TODO"
+    toHtml model = doctypehtml_ $ do
+    doctypehtml_ $ do
+        head_ $ do
+            meta_ [charset_ "utf-8"]
+            meta_ [ name_ "viewport"
+                  , content_ "width=device-width,initial-scale=1,shrink-to-fit=no"]
+            title_ "Music"
+
+        body_ $ do
+            h1_ "TODO"
+            -- TODO
+
+-- linkApiAll :: URI
+-- linkApiAll = linkURI $ safeLink (Proxy @Api) (Proxy @ApiAll)
+
+-- linkApiArtist TODO
 
