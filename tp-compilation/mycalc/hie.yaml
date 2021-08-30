@@ -1,9 +1,0 @@
-cradle:
-  cabal:
-    - path: "./src"
-      component: lib:mycalc
-    - path: "./app"
-      component: exe:mycalc
-    - path: "./test"
-      component: test:spec
-

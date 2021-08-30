@@ -1,12 +1,11 @@
-{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FlexibleInstances, LambdaCase #-}
 
-module Mycalc.Parser.Monadic where
+module Parser.Monadic where
 
 import Control.Applicative
--- import Data.Char
+import Data.Char
 
-import Mycalc.Syntax
-
+import Syntax
 
 -------------------------------------------------------------------------------
 -- main types & functions
@@ -16,47 +15,15 @@ type Result v = Either String (v, String)
 
 newtype Parser v = Parser { runParser :: String -> Result v }
 
-parseExpr :: String -> Either String Expr
-parseExpr str = fst <$> runParser additiveP str
-
 itemP :: Parser Char 
-itemP = Parser $ \s0 ->
-    case s0 of
-        (x:xs) -> Right (x, xs)
-        [] -> Left "no input"
+itemP = Parser $ \case 
+    (x:xs) -> Right (x, xs)
+    [] -> Left "no input"
 
-
--------------------------------------------------------------------------------
--- parsing primitives
--------------------------------------------------------------------------------
-
-charP :: Char -> Parser Char
-charP s = do
-    c <- itemP
-    if c == s
-    then return c
-    else fail ("unexpected " ++ show c ++ ", waiting " ++ show s)
-
--- TODO digitP :: Parser Char
-
--- TODO digitsP :: Parser String
-
--- TODO natP :: Parser Int
-
-
--------------------------------------------------------------------------------
--- grammar
--------------------------------------------------------------------------------
-
--- TODO decimalP :: Parser Expr
-
--- TODO multitiveP :: Parser Expr
-
--- TODO
-additiveP :: Parser Expr
-additiveP = charP '0' >> (return $ ExprVal 0)
-    
-
+parseList :: String -> Either String List
+parseList input = case runParser listP input of
+    Right (v1, _) -> Right v1
+    Left err -> Left err
 
 -------------------------------------------------------------------------------
 -- instances
@@ -91,13 +58,10 @@ instance Monad Parser where
             (b, d2) <- runParser (f2 a) d1
             return (b, d2)
 
-    -- fail :: String -> Parser a
-    fail msg = Parser (\_ -> Left msg)
-
 instance Alternative (Either String) where
 
     -- empty :: f a 
-    empty = Left "empty"
+    empty = Left "no parse"
 
     -- (<|>) :: f a -> f a -> f a
     Left _ <|> e2 = e2
@@ -111,4 +75,36 @@ instance Alternative Parser where
     -- (<|>) :: f a -> f a -> f a
     (Parser p1) <|> (Parser p2) = Parser $ \input -> p1 input <|> p2 input
 
+-------------------------------------------------------------------------------
+-- parsing primitives
+-------------------------------------------------------------------------------
+
+satisfyP :: (Char -> Bool) -> Parser Char
+satisfyP p = do
+    x <- itemP
+    if p x then return x else empty
+
+charP :: Char -> Parser Char
+charP _c = Parser $ const $ Left "TODO"
+
+digitP :: Parser Int
+digitP = do
+    x <- satisfyP isDigit
+    return $ digitToInt x
+
+digitListP :: Parser [Int]
+digitListP = alt1 <|> alt2 <|> alt3
+    where
+        alt1 = do
+            x <- digitP
+            _ <- charP ' '
+            xs <- digitListP
+            return (x:xs)
+        alt2 = do
+            x <- digitP
+            return [x]
+        alt3 = return []
+
+listP :: Parser List
+listP = Parser $ const $ Left "TODO"
 
