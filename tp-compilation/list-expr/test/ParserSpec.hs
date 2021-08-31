@@ -32,5 +32,12 @@ spec = do
         it "(42 (13 37))" $ runParser listP "(42 (13 37))" `shouldBe` 
             Right (List [Atom 42, List [Atom 13, Atom 37]], "")
         it "()" $ runParser listP "()" `shouldBe` Right (List [], "")
+
+    describe "parseExpr" $ do
+        it "((13   37)42 )" $ parseExpr "((13   37)42 )" `shouldBe`
+            Right (List [List [Atom 13,Atom 37],Atom 42])
+        it " (1 2 3 ())" $ parseExpr " (1 2 3 ())" `shouldBe`
+            Right (List [Atom 1,Atom 2,Atom 3,List []])
+
     -}
 
