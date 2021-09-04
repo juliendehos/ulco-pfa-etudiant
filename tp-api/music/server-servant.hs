@@ -52,8 +52,8 @@ instance ToHtml Model where
             h1_ "TODO"
             -- TODO
 
--- linkApiAll :: URI
--- linkApiAll = linkURI $ safeLink (Proxy @Api) (Proxy @ApiAll)
+-- linkApiAll :: T.Text
+-- linkApiAll = toUrlPiece $ safeLink (Proxy @Api) (Proxy @ApiAll)
 
 -- linkApiArtist TODO
 
