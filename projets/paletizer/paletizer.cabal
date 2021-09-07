@@ -1,0 +1,30 @@
+cabal-version:      2.2
+name:               paletizer
+version:            1.0
+build-type:         Simple
+license:            MIT
+
+common deps
+    ghc-options:        -Wall -O2
+    default-language:   Haskell2010
+    build-depends:      base, bytestring, linear, time, vector
+
+library
+    import:             deps
+    hs-source-dirs:     src
+    exposed-modules:    Image, Paletizer, Pnm
+
+executable paletizer
+    import:             deps
+    hs-source-dirs:     app
+    main-is:            Main.hs
+    build-depends:      paletizer
+
+test-suite spec
+    import:             deps
+    main-is:            Spec.hs
+    hs-source-dirs:     test
+    type:               exitcode-stdio-1.0
+    build-depends:      paletizer, hspec
+    other-modules:      PaletizerSpec, PnmSpec
+
