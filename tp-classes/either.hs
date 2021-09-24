@@ -1,9 +1,5 @@
 type MyNum = Either String Double
 
-showMyNum :: MyNum -> String
-showMyNum (Left str) = "error: " ++ str
-showMyNum (Right n) = "result: " ++ show n
-
 -- mySqrt :: Double -> MyNum
 
 -- myLog :: Double -> MyNum
@@ -12,9 +8,18 @@ showMyNum (Right n) = "result: " ++ show n
 
 -- myNeg :: Double -> MyNum
 
-myCompute :: MyNum
-myCompute = Left "TODO"
+myCompute1 :: MyNum
+myCompute1 = Left "TODO avec case-of"
+
+myCompute2 :: MyNum
+myCompute2 = Left "TODO avec do"
+
+myCompute3 :: MyNum
+myCompute3 = Left "TODO avec >>="
 
 main :: IO ()
-main = putStrLn $ showMyNum myCompute
+main = do
+    print myCompute1
+    print myCompute2
+    print myCompute3
 
