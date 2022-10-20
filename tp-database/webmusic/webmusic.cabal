@@ -8,8 +8,9 @@ common deps
     ghc-options:        -Wall -O
     default-language:   Haskell2010
     build-depends:      base, lucid, scotty, text, text-show, wai-extra,
-                        selda, selda-postgresql, selda-sqlite,
+                        selda, selda-sqlite,
                         sqlite-simple, postgresql-simple
+                        -- , selda-postgresql
 
 library
     import:             deps

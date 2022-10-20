@@ -9,7 +9,7 @@ mkShell {
       postgresql-simple
       selda
       selda-sqlite
-      selda-postgresql
+      #selda-postgresql
       scotty
       text
       text-show

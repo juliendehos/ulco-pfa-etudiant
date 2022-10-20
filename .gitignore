@@ -6,6 +6,5 @@ stack.yaml.lock
 *.db
 all.js
 dist-*
-.vscode
 result
 
