@@ -1,5 +1,0 @@
-cradle:
-  cabal:
-    - path: "."
-      component: exe:helloapp
-

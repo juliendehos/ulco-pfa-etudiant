@@ -1,9 +1,0 @@
-cradle:
-  cabal:
-    - path: "./src"
-      component: lib:arithm
-    - path: "./app/arithm"
-      component: exe:arithm
-    - path: "./test"
-      component: test:spec
-

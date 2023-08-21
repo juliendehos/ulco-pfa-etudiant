@@ -1,6 +1,0 @@
-cradle:
-  cabal:
-    - path: "./src"
-      component: "lib:webmusic"
-    - path: "./app"
-      component: "exe:webmusic"

@@ -1,11 +1,8 @@
-.stack-work
 result
-stack.yaml.lock
 *.hi
 *.ho
 *.db
 all.js
 dist-*
-.vscode
 result
 

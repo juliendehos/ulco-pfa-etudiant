@@ -10,7 +10,7 @@ parse str =
 parseAux :: [String] -> (Expr, [String])
 parseAux [] = error "no parse"
 parseAux (x:xs0) =
-    let (e1, xs1) = parseAux xs0
+    let (e1, xs1) = parseAux xs0pfa
         (e2, xs2) = parseAux xs1
     in case x of
         "+" -> (Add e1 e2, xs2)
