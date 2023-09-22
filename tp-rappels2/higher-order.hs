@@ -4,7 +4,7 @@ import Data.List
 
 -- selectList
 
-- maxList
+-- maxList
 
 main :: IO ()
 main = putStrLn "TODO"
