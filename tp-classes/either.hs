@@ -4,7 +4,7 @@ type MyNum = Either String Double
 
 -- myMul2 :: Double -> MyNum
 
--- myNeg :: Double -> MyNum
+-- myNegate :: Double -> MyNum
 
 myCompute1 :: MyNum
 myCompute1 = Left "TODO avec case-of"
