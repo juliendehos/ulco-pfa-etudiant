@@ -6,7 +6,7 @@ let
     aeson
     bytestring
     optparse-applicative
-    pandoc
+    #pandoc
     scalpel
     text
     yaml
