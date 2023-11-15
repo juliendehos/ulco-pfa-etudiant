@@ -7,7 +7,7 @@ let
     bytestring
     optparse-applicative
     #pandoc
-    scalpel
+    #scalpel
     text
     yaml
   ]);
