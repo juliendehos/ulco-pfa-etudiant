@@ -5,10 +5,10 @@ let
   ghc = pkgs.haskellPackages.ghcWithPackages (ps: with ps; [
     aeson
     bytestring
-    hakyll
+    #hakyll
     lucid
     optparse-applicative
-    pandoc
+    #pandoc
     scalpel
     text
     text-show

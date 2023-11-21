@@ -6,8 +6,8 @@ let
     aeson
     bytestring
     optparse-applicative
-    pandoc
-    scalpel
+    #pandoc
+    #scalpel
     text
     yaml
   ]);
