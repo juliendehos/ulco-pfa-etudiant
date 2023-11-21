@@ -1,0 +1,47 @@
+cabal-version:      3.4
+name:               tictactoe
+version:            0.1.0.0
+license:            MIT
+build-type:         Simple
+
+description:
+    Implémente un jeu de [Tic-tac-toe](https://fr.wikipedia.org/wiki/Tic-tac-toe) selon une architecture client-serveur.
+
+    Utilisation : lancer le serveur (tictactoe-server) puis 2 clients (tictactoe-client ou web) pour que la partie commence.
+
+common myoptions
+    ghc-options:      -Wall -Wno-orphans
+    default-language: GHC2021
+
+library
+    import:           myoptions
+    exposed-modules:  Tictactoe.Fmt, Tictactoe.Game, Tictactoe.Protocol
+    build-depends:    base, aeson, bytestring, containers, hspec, stm, vector, websockets
+    hs-source-dirs:   src
+
+executable tictactoe-server
+    import:           myoptions
+    main-is:          tictactoe-server.hs
+    build-depends:    base, containers, stm, tictactoe, websockets
+    hs-source-dirs:   app
+
+executable tictactoe-client
+    import:           myoptions
+    main-is:          tictactoe-client.hs
+    build-depends:    base, bytestring, tictactoe, websockets
+    hs-source-dirs:   app
+
+executable tictactoe-local
+    import:           myoptions
+    main-is:          tictactoe-local.hs
+    build-depends:    base, tictactoe
+    hs-source-dirs:   app
+
+test-suite tictactoe-test
+    import:           myoptions
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Spec.hs
+    other-modules:    Tictactoe.GameSpec
+    build-depends:    base, hspec, tictactoe
+
