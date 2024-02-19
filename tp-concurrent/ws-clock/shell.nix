@@ -4,6 +4,7 @@ let
 
   ghc = pkgs.haskellPackages.ghcWithPackages (ps: with ps; [
     random
+    stm
     websockets
   ]);
 
