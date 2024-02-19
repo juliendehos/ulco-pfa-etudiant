@@ -19,13 +19,13 @@ addInModel conn (Model net0 game0) =
         game1 = addPlayer i game0
     in (Model net1 game1, i)
 
-rmInModel :: Int -> Model -> Model
-rmInModel iConn (Model net0 game0) =
-    let net1 = rmConn iConn net0
-        game1 = rmPlayer iConn game0
+removeInModel :: Int -> Model -> Model
+removeInModel iConn (Model net0 game0) =
+    let net1 = removeConn iConn net0
+        game1 = removePlayer iConn game0
     in Model net1 game1
 
-upModel :: String -> Int -> Model -> Model
-upModel msg iConn m = m { _game = g1 }
-    where g1 = upPlayer msg iConn (_game m)
+updateModel :: String -> Int -> Model -> Model
+updateModel msg iConn m = m { _game = g1 }
+    where g1 = updatePlayer msg iConn (_game m)
 

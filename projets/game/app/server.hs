@@ -26,7 +26,7 @@ serverApp var pc = do
 handleConn :: Var -> Int -> WS.Connection -> IO ()
 handleConn var iConn conn = do
     msg <- T.unpack . WS.fromDataMessage <$> WS.receiveDataMessage conn
-    modifyMVar_ var (return . upModel msg iConn)
+    modifyMVar_ var (return . updateModel msg iConn)
     broadcastGame var
     handleConn var iConn conn
 
@@ -37,5 +37,5 @@ broadcastGame var =
         in mapInNet (\c -> WS.sendTextData c msg) (_net model)
 
 handleQuit :: Var -> Int -> IO ()
-handleQuit var iConn = modifyMVar_ var (return . rmInModel iConn)
+handleQuit var iConn = modifyMVar_ var (return . removeInModel iConn)
 

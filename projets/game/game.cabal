@@ -12,18 +12,17 @@ common deps
 library
     import:             deps
     hs-source-dirs:     src
-    exposed-modules:    Game
+    exposed-modules:    Game, Model, Net
 
 executable game-server
     import:             deps
-    hs-source-dirs:     app/server
-    main-is:            Main.hs
-    other-modules:      Model, Net
+    hs-source-dirs:     app
+    main-is:            server.hs
     build-depends:      game
 
 executable game-client
     import:             deps
-    hs-source-dirs:     app/client
-    main-is:            Main.hs
+    hs-source-dirs:     app
+    main-is:            client.hs
     build-depends:      game
 

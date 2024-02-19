@@ -26,8 +26,8 @@ addConn conn (Net i0 cs0) = (net1, i0)
     where net1 = Net (i0 + 1) (Conn i0 conn : cs0)
 
 -- | Supprime une connexion du réseau, à partir de son identifiant.
-rmConn :: Int -> Net a -> Net a
-rmConn i net = net { _conns = cs1 }
+removeConn :: Int -> Net a -> Net a
+removeConn i net = net { _conns = cs1 }
     where cs1 = filter ((i /=) . _id) (_conns net)
 
 -- | applique une fonction sur toutes les connexions du Manager
