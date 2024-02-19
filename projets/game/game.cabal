@@ -7,12 +7,12 @@ license:            MIT
 common deps
     ghc-options:        -Wall -O
     default-language:   Haskell2010
-    build-depends:      base, bytestring, text, websockets
+    build-depends:      base, bytestring, stm, text, websockets
 
 library
     import:             deps
     hs-source-dirs:     src
-    exposed-modules:    Game, Model, Net
+    exposed-modules:    Game, ServerModel, Net
 
 executable game-server
     import:             deps
