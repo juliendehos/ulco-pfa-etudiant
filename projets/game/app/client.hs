@@ -6,6 +6,8 @@ import qualified Network.WebSockets as WS
 import Control.Concurrent (forkIO)
 import Control.Monad (forever)
 
+type World = ()
+
 main :: IO ()
 main = WS.runClient "0.0.0.0" 9000 "" $ \conn -> do
     _ <- forkIO $ handleInput conn
