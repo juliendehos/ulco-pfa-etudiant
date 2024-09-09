@@ -4,6 +4,7 @@
 
 module DbSeldaSqlite where
 
+import Data.Int (Int64)
 import Database.Selda
 import Database.Selda.SQLite
 
@@ -17,10 +18,10 @@ data Model = Model
     , modelTitles   :: [Text]
     } 
 
-myIntToId :: Int -> ID a
+myIntToId :: Int64 -> ID a
 myIntToId = toId
 
-myIdToInt :: ID a -> Int
+myIdToInt :: ID a -> Int64
 myIdToInt = fromId
 
 type IDArtist = ID Artist

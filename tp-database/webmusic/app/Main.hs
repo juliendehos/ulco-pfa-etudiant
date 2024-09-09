@@ -16,7 +16,7 @@ main :: IO ()
 main = scotty 3000 $ do
     middleware logStdout
     get "/" $ do
-        pSelected <- param "selected" `rescue` (\_ -> return "Nothing")
+        pSelected <- queryParam "selected" `rescue` (\(StatusError _ _) -> return "Nothing")
         let selected = myIntToId <$> readMaybe pSelected
         liftIO $ print selected
         artists <- liftIO $ runDb selectAllArtists
