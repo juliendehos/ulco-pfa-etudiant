@@ -2,7 +2,7 @@
 
 import Data.Maybe (fromMaybe)
 import System.Environment (lookupEnv)
-import Web.Scotty (get, param, scotty, text)
+import Web.Scotty (get, captureParam, scotty, text)
 
 main :: IO ()
 main = do
@@ -12,6 +12,6 @@ main = do
         get "/" $ text "Hello unknown user !"
 
         get "/:name" $ do
-            name <- param "name"
+            name <- captureParam "name"
             text $ "Hello " <> name <> " !"
 
