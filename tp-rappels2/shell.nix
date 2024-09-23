@@ -4,13 +4,13 @@ let
 
   ghc = pkgs.haskellPackages.ghcWithPackages (ps: with ps; [
     array
-    haskell-gi-base
-    gi-cairo
-    gi-gdk
-    gi-glib
-    gi-gtk
-    gi-cairo-render
-    gi-cairo-connector
+    # haskell-gi-base
+    # gi-cairo
+    # gi-gdk
+    # gi-glib
+    # gi-gtk
+    # gi-cairo-render
+    # gi-cairo-connector
   ]);
 
 in pkgs.stdenv.mkDerivation {
